@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { PagesList } from "./PagesList";
+import { NewPageForm } from "./NewPageForm";
+import { PageDetails } from "./PageDetails";
 
-// import and prepend the api url to any fetch calls
+// Import and prepend the API URL to any fetch calls
 import apiURL from "../api";
 
 export const App = () => {
   const [pages, setPages] = useState([]);
-  //adding useStates for adding an article and a selected page.
   const [isAddingArticle, setIsAddingArticle] = useState(false);
   const [selectedPage, setSelectedPage] = useState(null);
 
@@ -28,7 +29,6 @@ export const App = () => {
     <main>
       <h1>WikiVerse</h1>
       <h2>An interesting 📚</h2>
-      {/* added a button for setting the states of the article and selected page */}
       <button onClick={() => setIsAddingArticle(true)}>Add New Page</button>
       {isAddingArticle ? (
         <NewPageForm
