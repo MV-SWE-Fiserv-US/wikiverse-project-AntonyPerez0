@@ -28,7 +28,22 @@ export const App = () => {
     <main>
       <h1>WikiVerse</h1>
       <h2>An interesting 📚</h2>
-      <PagesList pages={pages} />
+      {/* added a button for setting the states of the article and selected page */}
+      <button onClick={() => setIsAddingArticle(true)}>Add New Page</button>
+      {isAddingArticle ? (
+        <NewPageForm
+          setIsAddingArticle={setIsAddingArticle}
+          fetchPages={fetchPages}
+        />
+      ) : selectedPage ? (
+        <PageDetails
+          page={selectedPage}
+          setSelectedPage={setSelectedPage}
+          fetchPages={fetchPages}
+        />
+      ) : (
+        <PagesList pages={pages} setSelectedPage={setSelectedPage} />
+      )}
     </main>
   );
 };
