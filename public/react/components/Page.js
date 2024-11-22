@@ -1,9 +1,10 @@
 import React from "react";
 
-export const Page = (props) => {
+export const Page = ({ page, setSelectedPage }) => {
   return (
     <>
-      <h3>{props.page.title}</h3>
+      {/* added a set for the page */}
+      <h3 onClick={() => setSelectedPage(page)}>{page.title}</h3>
     </>
   );
 };

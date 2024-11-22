@@ -5,7 +5,8 @@ export const PagesList = ({ pages }) => {
   return (
     <>
       {pages.map((page, idx) => {
-        return <Page page={page} key={idx} />;
+        // added the set for the selected page in the page return.
+        return <Page page={page} key={idx} setSelectedPage={setSelectedPage} />;
       })}
     </>
   );
