@@ -28,9 +28,55 @@ const NewPageForm = ({ setIsAddingArticle, fetchPages }) => {
   };
 
   return (
-    <div>
-      <h2>New Page Form</h2>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Title:</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Content:</label>
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Author Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Author Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Tags (separated by spaces):</label>
+        <input
+          type="text"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        />
+      </div>
+      <button type="submit">Submit</button>
+      <button type="button" onClick={() => setIsAddingArticle(false)}>
+        Cancel
+      </button>
+    </form>
   );
 };
 
